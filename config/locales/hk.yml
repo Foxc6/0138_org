@@ -1,0 +1,28 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+hk:
+  hello: "Hello world"
+  
+  share_name: "升級版肌膚再生修復精華"
+  share_caption: "為肌膚重建天然儲水庫"
+  share_description: "立即免費體驗全新Make A Difference™ Plus+ 升級版肌膚再生修復精華!"
+  
+  error_unknown: "系統出現故障，請重新輸入。"
+  error_duplicate_email: "您提供的電郵已經登記。每人只限申請試用裝一份。"
+
+  valid_email:
+    validations:
+      email:
+        invalid: "請輸入有效電郵地址。"
+  errors:
+    messages:
+      blank: "請填上必須空格。"
+      accepted: "請填上必須空格。"
+      confirmation: "電郵地址及確認電郵地址必須相同。"
+
+  codes:
+    messages:
+      not_found: "QR Code無效"
+      only_one: "每位客戶只可以獲取一次。"
+      not_available: "No more available."

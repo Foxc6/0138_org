@@ -1,0 +1,48 @@
+<div class="table-holder">
+  <div class="has-limit extended14">
+  <% if @variants.any? %>
+  <table>
+    <thead class="pretty">
+      <tr>
+        <th>Code</th>
+        <th>Price</th>
+        <th>Size</th>
+        <th>Is Master</th>
+        <th data-hook="admin_variants_index_header_actions" class="actions"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @variants.each do |variant| %>
+        <tr class="override">
+          <td class="align-center"><%= variant.code %></td>
+          <td class="align-center"><%= variant.price %></td>
+          <% if variant.option_values.any? %>
+            <td class="align-center"><%= variant.option_values.first.presentation %></td>
+          <% end %>
+          <% if variant.is_master %>
+            <td class="align-center">Yes</td>
+          <% else  %>
+            <td class="align-center">No</td>
+          <% end %>
+
+          <td class="actions" data-hook="admin_variants_index_row_actions">
+          <%= link_to '', edit_variant_path(variant, :product => @product), :class => 'edit fa fa-edit icon_link with-tip no-text' %>
+            &nbsp;
+            <%= link_to '', variant_path(variant), :class => 'fa fa-trash icon_link', method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% end %>
+  </div>
+</div>
+
+<div class="col-sm-12 col-md-12 pagination-block">
+  <% if @variants.any? %>
+  <%= will_paginate @variants, :previous_label => 'Prev', :next_label => 'Next'  %>
+  <% else %>
+  <p class="empty">No variants yet.</p>
+  <% end %>
+</div>

@@ -1,0 +1,29 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+my:
+  hello: "Hello world"
+  
+  share_name: "Make a Difference™ Plus + Rejuvenating serum"
+  share_caption: "Boost skin's own healthy hydration system"
+  share_description: "Try NEW Origins Make A Difference™ Plus + Rejuvenating serum for FREE!"
+  
+  error_unknown: "An unknown error has occurred, please try again."
+  error_duplicate_email: "Your email is already in the system. Only one sample per customer."
+
+  valid_email:
+    validations:
+      email:
+        invalid: "Please enter a valid email address."
+  errors:
+    messages:
+      blank: "Please complete required fields."
+      accepted: "Please complete required fields."
+      confirmation: "Email and Confirm Email field must be the same."
+      code_already_redeemed: "Code already redeemed"
+
+  codes:
+    messages:
+      not_found: "Code not found."
+      only_one: "Only one per customer."
+      not_available: "No more available."

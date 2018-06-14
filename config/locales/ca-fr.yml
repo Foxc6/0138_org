@@ -1,0 +1,8 @@
+nl:
+  Male: "Mâle"
+  Female: "Femelle"
+  codes:
+    messages:
+      not_found: "Code non trouvé."
+      only_one: "Seulement un par client."
+      not_available: "Ne est plus disponible."

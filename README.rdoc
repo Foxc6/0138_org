@@ -1,0 +1,60 @@
+# Origins Regimen App
+
+This is the Origins Regimen App and API project. This project works in parallel with the Origins Regimen iPad App.
+
+## Installation:
+
+Before getting started you will need and environment .env file - contact admin@illcreative.com
+
+Ruby v2.2.3
+
+```ruby
+  bundle install # Install dependencies
+```
+
+Duplicate config/database.yml.example and rename to config/database.yml
+
+Set development and test database values to work with your local mysql adapter
+
+```ruby
+  bundle exec rake db:create # Create database
+```
+
+```ruby
+  bundle exec rake db:migrate # Create database
+```
+
+```ruby
+  bundle exec rake db:seed # Seed database
+  bundle exec rake db:seed RAILS_ENV=test # Seed Test Database
+```
+
+```ruby
+  bundle exec rspec -fd # Run test suite
+
+  to ensure all test pass before pushing open  .git/hooks/pre-push.sample and add the command: echo "Running RSpec"
+  bundle exec rspec -fd
+  spec=$?
+
+
+
+  if [ $spec -eq 0 ]; then
+    echo "\\033[32mTests are green, pushing...\\033[0;39m"
+    exit 0
+  else
+    echo "\\033[1;31mCannot push, tests are failing. Use --no-verify to force push.\\033[0;39m"
+    exit 1
+  fi
+
+  Then rename the file to .git/hooks/pre-push
+```
+
+```ruby
+  rails console # Start the console
+  @apikey = ApiKey.create # Generate the API Key
+  @apikey.save! # Save to the database
+```
+
+```ruby
+  rails server # Start server
+```

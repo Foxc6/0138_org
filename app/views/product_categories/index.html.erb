@@ -1,0 +1,14 @@
+<div class="row bar-header full-bg">
+  <div class="col-sm-12 col-md-12">
+    <div class="has-limit">
+      <% flash.each do |key, value| %>
+      <div id="error_explanation"><%= value %></div>
+      <% end %>
+      <h2>Product Categories</h2>
+      <%= link_to '+ New Product Category', new_product_category_path %>
+    </div>
+  </div>
+</div>
+<div class="layout row">
+  <%= render :partial => 'product_categories/list', :locals => {:product_categories => @product_categories} %>
+</div>

@@ -1,0 +1,41 @@
+<%= form_for(@guide) do |f| %>
+<% if @guide.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@guide.errors.count, "error") %> prohibited this guide from being saved:</h2>
+    <ul>
+    <% @guide.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<div class="actions">
+  <div class="form-group edit-pro-contact">
+    <fieldset class="first-name">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
+    </fieldset>
+    <fieldset class="first-name">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+    </fieldset>
+    <fieldset class="first-name">
+      <%= f.label :username %>
+      <%= f.text_field :username %>
+    </fieldset>
+    <fieldset class="first-name">
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+    </fieldset>
+    <div class="actions">
+      <%= f.submit  %>
+      <% if @guide %>
+        <%= link_to 'Cancel', @guide %>
+        <% else %>
+        <%= link_to 'Cancel', guides_path %>
+      <% end %>
+    </div>
+  </div>
+</div>
+  <% end %>
+

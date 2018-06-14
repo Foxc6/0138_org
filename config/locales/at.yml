@@ -1,0 +1,6 @@
+at:
+  codes:
+    messages:
+      not_found: "Ukendt kode."
+      only_one: "Nur eine pro Kunde."
+      not_available: "Nicht mehr verfügbar."

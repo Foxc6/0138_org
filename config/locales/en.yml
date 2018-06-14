@@ -1,0 +1,36 @@
+en:
+
+  Male: "Male"
+  Female: "Female"
+  hello: "Hello world"
+
+  share_name: "Make A Difference™ Plus +"
+  share_caption: "Repairs and corrects to prevent moisture loss."
+  share_description: "Try NEW Origins Smarty Plants™ CC SPF 20/ PA+++ Skin complexion corrector for FREE!"
+
+  error_unknown: "An unknown error has occurred, please try again."
+  error_duplicate_email: "Your email is already in the system. Only one sample per customer."
+
+  valid_email:
+    validations:
+      email:
+        invalid: "Please enter a valid email address."
+  errors:
+    messages:
+      blank: "Please complete required fields."
+      accepted: "Please complete required fields."
+      confirmation: "Email and Confirm Email field must be the same."
+
+  admin:
+    actions:
+      dashboard:
+        title: "Dashboard"
+      index:
+        title: "%{model_label_plural}"
+
+  codes:
+    messages:
+      not_found: "Code not found."
+      only_one: "Only one per customer."
+      not_available: "No more available."
+

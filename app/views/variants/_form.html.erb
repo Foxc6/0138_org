@@ -1,0 +1,45 @@
+<% if @variant.nil? %>
+<%
+   @option_types = OptionType.all
+    @variant = Variant.new
+ %>
+<% end %>
+<% if @variant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@variant.errors.count, "error") %> prohibited this variant from being saved:</h2>
+      <ul>
+      <% @variant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= nested_form_for @variant do |f| %>
+    <div class="form-group edit-pro-contact">
+      <%= f.hidden_field :product_id, :value => @product.id %>
+      <fieldset class="code">
+        <%= f.label :code %>
+        <%= f.text_field :code %>
+      </fieldset>
+      <fieldset class="upc">
+        <%= f.label :upc %>
+        <%= f.text_field :upc %>
+      </fieldset>
+      <fieldset class="price">
+        <%= f.label :price %>
+        <%= f.number_field :price, :step => 0.01 %>
+      </fieldset>
+      <fieldset>
+        <% @option_types.each do |option_type| %>
+          <%= f.label :option_type, option_type.presentation %>
+          <% option_values = OptionValue.where(option_type_id: option_type.id) %>
+          <%= f.collection_select(:option_value_ids, OptionValue.where(option_type_id: option_type.id), :id, :name, {}, {class: "chosen-select medium", :data => {'placeholder' => 'option value'}}) %>
+        <% end %>
+      </fieldset>
+      <div class="actions">
+        <%= f.submit  %>
+        <%= link_to 'Cancel', variants_path(:product => @product) %>
+      </div>
+    </div>
+<% end %>

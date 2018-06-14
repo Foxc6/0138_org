@@ -1,0 +1,6 @@
+nl:
+  codes:
+    messages:
+      not_found: "Code niet gevonden."
+      only_one: "Slechts één per klant."
+      not_available: "Niet meer beschikbaar."

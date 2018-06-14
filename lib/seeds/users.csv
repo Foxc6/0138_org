@@ -1,0 +1,3 @@
+id,first_name,last_name,username,email,encrypted_password,locale_id,role_id
+12,Shea,Gonyo,sgonyo,shea@illcreative.com,$2a$10$fR5Q7AORhwrZS/yROkqOheF67dSdWG0zl1iQYl2K0N76TmS/hsuva,2,1
+2,Chris,Fox,,chris@illcreative.com,$2a$10$NxnYfmnYEKT4lGr2.GLRWuApeGc4Nh8OeIlVqPhTeEUvff5ravaEC,2,1

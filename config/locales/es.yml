@@ -1,0 +1,6 @@
+es:
+  codes:
+    messages:
+      not_found: "No más disponible."
+      only_one: "Sólo uno por cliente."
+      not_available: "No más disponible."

@@ -1,0 +1,70 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+  <div class="form-group edit-pro-contact">
+    <fieldset class="first-name">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
+    </fieldset>
+    <fieldset class="last-name">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+    </fieldset>
+    <fieldset id="username">
+      <%= f.label :username %>
+      <%= f.text_field :username %>
+    </fieldset>
+    <fieldset class="role">
+      <% unless @user.role.blank? %>
+      <%= f.label :role %>
+      <%= f.collection_select "role_id",
+        Role.all, "id", "name",
+        {include_blank: true, selected: @user.role_id},
+        { class: 'chosen-select', :data => {'placeholder' => 'Role', 'value' => @user.role.name}} %>
+      <% else %>
+      <%= f.label :role %>
+      <%= f.collection_select "role_id",
+        Role.all, "id", "name",
+        {include_blank: true, selected: @user.role_id},
+        { class: 'chosen-select', :data => {'placeholder' => 'Role'}} %>
+      <% end %>
+    </fieldset>
+    <fieldset class="email">
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </fieldset>
+    <fieldset class="user">
+      <% unless @user.locale.blank? %>
+      <%= f.label :locale %>
+      <%= f.collection_select "locale_id",
+        Locale.all, "id", "name",
+        {include_blank: true, selected: @user.locale_id},
+        { class: 'chosen-select', :data => {'placeholder' => 'Locale', 'value' => @user.locale.name}} %>
+      <% else %>
+      <%= f.label :locale %>
+      <%= f.collection_select "locale_id",
+        Locale.all, "id", "name",
+        {include_blank: true, selected: @user.locale_id},
+        { class: 'chosen-select', :data => {'placeholder' => 'Locale'}} %>
+      <% end %>
+    </fieldset>
+    <fieldset>
+      <%= f.label :password %>
+      <%= f.text_field :password %>
+    </fieldset>
+
+    <%= f.submit %>
+  </div>
+  </div>
+<% end %>

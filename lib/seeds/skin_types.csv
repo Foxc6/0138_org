@@ -1,0 +1,4 @@
+id,name,locale_id,icon_image_file_name,icon_image_content_type,icon_image_file_size,icon_image_updated_at
+1,Dry,2,dry.svg,image/svg+xml,1291,2015-10-19 19:54:59
+2,Oily,2,oily.svg,image/svg+xml,1552,2015-10-19 19:54:45
+3,Normal/Combination,2,normal.svg,image/svg+xml,1106,2015-10-19 19:49:33

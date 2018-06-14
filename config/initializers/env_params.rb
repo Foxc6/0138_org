@@ -1,0 +1,1 @@
+ENV['APPLICATION_TOKEN'] = 'a94cadd061ac7a7cd1161abdb98b9fa7'

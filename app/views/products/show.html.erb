@@ -1,0 +1,102 @@
+<% flash.each do |key, value| %>
+<div id="error_explanation" class="row notice"><%= value %></div>
+<% end %>
+<div class="row bar-header full-bg">
+  <div class="col-sm-12 col-md-12">
+    <div class="has-limit">
+      <h2>Product</h2>
+      <%= link_to 'Delete', product_path(@product),
+                  data: {:confirm => 'Are you sure?'}, :method => :delete %>
+      <%= link_to 'Edit', edit_product_path(@product) %>
+      <%= link_to 'Back', products_path %>
+    </div>
+  </div>
+</div>
+<div class="group-contents">
+  <% if @product %>
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <div class="has-limit">
+        <div class="avatar">
+        <%= image_tag(@product.image) %><br>
+        </div>
+        <div class="pinfo">
+          <p><%= @product.franchise_name %></p>
+          <h3><%= @product.name %></h3>
+          <%= @product.description.html_safe %>
+          <p><strong>Ecomm URL:</strong> <%= @product.ecomm_url %></p>
+          <p><strong>Active:</strong> <%= @product.active %></p>
+          <p><strong>Code:</strong> <%= @product.master.code %></p>
+          <p><strong>UPC:</strong> <%= @product.master.upc %></p>
+          <p><strong>Price:</strong> <%= number_to_currency(@product.master.price, :unit => "$") %></p>
+          <% if @product.product_category %>
+            <p><strong>Category:</strong> <%= link_to(@product.product_category.name, product_category_path(@product.product_category)) %></p>
+          <% end %>
+          <% if @product.skin_types.any? %>
+          <p><strong>Skin Types</strong></p>
+          <ul class="skin-types">
+            <% @product.skin_types.each do |skin_type|  %>
+              <li>
+                <%= image_tag skin_type.icon_image %> <%= skin_type.name %>
+              </li>
+            <% end %>
+          </ul>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="table-holder">
+      <div class="has-limit extended14">
+        <h4>Variants</h4>
+        <table>
+          <thead class="pretty">
+            <tr>
+              <th>Code</th>
+              <th>Price</th>
+              <th>Size</th>
+              <th>Is Master</th>
+              <th data-hook="admin_variants_index_header_actions" class="actions"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="override">
+              <td class="align-center"><%= @product.master_code %></td>
+              <td class="align-center"><%= number_to_currency(@product.master_price, :unit => "$") %></td>
+              <% if @product.master_size.any? %>
+                <td class="align-center"><%= @product.master_size.first.presentation %></td>
+              <% else %>
+                <td class="align-center"></td>
+              <% end %>
+              <td class="align-center">Yes</td>
+            </tr>
+            <% if @product.variants.any? %>
+            <% @product.variants.each do |variant| %>
+              <tr class="override">
+                <td class="align-center"><%= variant.code %></td>
+                <td class="align-center"><%= number_to_currency(variant.price, :unit => "$") %></td>
+                <% if variant.option_values.any? %>
+                  <td class="align-center"><%= variant.option_values.first.presentation %></td>
+                <% else %>
+                  <td class="align-center"></td>
+                <% end %>
+                <% if variant.is_master? %>
+                  <td class="align-center">Yes</td>
+                <% else  %>
+                  <td class="align-center">No</td>
+                <% end %>
+
+                <td class="actions" data-hook="admin_variants_index_row_actions">
+                <%= link_to '', edit_product_path(@product), :class => 'edit fa fa-edit icon_link with-tip no-text' %>
+                  &nbsp;
+                  <%= link_to '', variant_path(variant), :class => 'fa fa-trash icon_link', method: :delete, data: { confirm: 'Are you sure?' } %>
+                </td>
+              </tr>
+            <% end %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

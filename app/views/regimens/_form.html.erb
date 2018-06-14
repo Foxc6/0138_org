@@ -1,0 +1,84 @@
+<%= nested_form_for @regimen  do |f| %>
+  <% if @regimen.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@regimen.errors.count, "error") %> prohibited this regimen from being saved:</h2>
+      <ul>
+      <% @regimen.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="actions">
+  <div class="form-group edit-pro-contact">
+    <fieldset class="first-name">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </fieldset>
+
+    <fieldset class="benefit">
+      <% unless @regimen.benefit.blank? %>
+      <%= f.label :benefit %>
+      <%= f.collection_select "benefit_id",
+        Benefit.user_scope, "id", "name",
+        {include_blank: true, selected: @regimen.benefit_id},
+        { class: 'chosen-select', :data => {'placeholder' => 'Benefit', 'value' => @regimen.benefit.name}} %>
+      <% else %>
+      <%= f.label :benefit %>
+      <%= f.collection_select "benefit_id",
+        Benefit.user_scope, "id", "name",
+        {include_blank: true, selected: @regimen.benefit_id},
+        { class: 'chosen-select', :data => {'placeholder' => 'Benefit'}} %>
+      <% end %>
+    </fieldset>
+
+    <fieldset class="skin-types">
+      <%= f.label :skin_types %>
+      <div class="cb-holder">
+        <%= f.collection_check_boxes :skin_type_ids, SkinType.user_scope, :id, :name, { :selected => @regimen.skin_type_ids } %>
+      </div>
+    </fieldset>
+    <fieldset class="age-range-min">
+      <%= f.label :age_range_min %>
+      <%= f.number_field :age_range_min %>
+    </fieldset>
+
+    <fieldset class="age-range-max">
+      <%= f.label :age_range_max %>
+      <%= f.number_field :age_range_max %>
+    </fieldset>
+
+    <h2>Product Categories</h2>
+
+    <% @categories.each do |category| %>
+      <ul>
+        <li>
+          <h3><%= category.name %></h3>
+          <% if category.children.any? %>
+          <ul>
+            <% category.children.each do |subcategory| %>
+              <% sub_id = subcategory.id %>
+              <% products = Product.where(product_category_id: sub_id) %>
+              <% if products.any? %>
+              <li>
+                <label><%= subcategory.name %></label>
+                <%= f.collection_select(:product_ids, products, :id, :name, {}, {multiple: true, class: "chosen-select medium", :data => {'placeholder' => 'Products'}}) %>
+              </li>
+            <% end %>
+            <% end %>
+          </ul>
+          <% else %>
+          <p>Sub category not found</p>
+          <% end %>
+        </li>
+      </ul>
+    <% end %>
+    <div class="actions">
+      <%= f.submit  %>
+      <%= link_to 'Cancel', @regimen %>
+    </div>
+  </div>
+</div>
+
+<% end %>

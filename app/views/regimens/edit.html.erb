@@ -1,0 +1,18 @@
+<% flash.each do |key, value| %>
+<div id="error_explanation" class="row notice"><%= value %></div>
+<% end %>
+<div class="row bar-header full-bg">
+  <div class="col-sm-12 col-md-12">
+    <div class="has-limit">
+      <h2>Editing Regimen</h2>
+      <%= link_to 'Show', @regimen %> <%= link_to 'Back', regimens_path %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12 col-md-12">
+    <div class="has-limit">
+      <%= render 'form' %>
+    </div>
+  </div>
+</div>

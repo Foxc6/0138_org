@@ -1,0 +1,55 @@
+<div class="table-holder">
+  <div class="has-limit extended14">
+  <% if @customers.any? %>
+  <table>
+    <thead class="pretty">
+      <tr>
+        <th><%= sortable "first_name" %></th>
+        <th><%= sortable "last_name" %></th>
+        <th><%= sortable "email" %></th>
+        <th><%= sortable "newsletter_optin" %></th>
+        <th><%= sortable "email_optin" %></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @customers.each do |customer| %>
+        <tr class="override">
+          <td class="avatar">
+            <span class="name">
+            <%= link_to customer.first_name, customer_path(customer) %>
+            </span>
+          </td>
+          <td>
+            <%= customer.last_name  %>
+          </td>
+          <td>
+            <%= customer.email  %>
+          </td>
+          <td>
+            <%= customer.newsletter_optin  %>
+          </td>
+          <td>
+            <%= customer.email_optin  %>
+          </td>
+          <td class="actions">
+            <a href="<%= edit_customer_path(customer) %>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+             <a href="<%= customer_path(customer) %>"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+            <%= link_to '', customer_path(customer), :method => :delete, :class => 'fa fa-times', data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% end %>
+  </div>
+</div>
+
+<div class="col-sm-12 col-md-12 pagination-block">
+  <% if @customers.any? %>
+  <%= will_paginate @customers, :previous_label => 'Prev', :next_label => 'Next'  %>
+  <% else %>
+  <p class="empty">No customers yet.</p>
+  <% end %>
+</div>

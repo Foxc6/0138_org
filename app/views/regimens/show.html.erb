@@ -1,0 +1,44 @@
+<% flash.each do |key, value| %>
+<div id="error_explanation" class="row notice"><%= value %></div>
+<% end %>
+<div class="row bar-header full-bg">
+  <div class="col-sm-12 col-md-12">
+    <div class="has-limit">
+      <h2>Regimen</h2>
+      <%= link_to 'Edit', edit_regimen_path(@regimen) %>
+      <%= link_to 'Back', regimens_path %>
+    </div>
+  </div>
+</div>
+<div class="group-contents">
+<% @categories.each do |category| %>
+<% if category.children.any? %>
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <div class="has-limit">
+        <h2><%= @regimen.name %></h2>
+        <h4><%= @regimen.benefit.name %></h4>
+        <div class="category">
+          <h3><%= link_to(category.name, category) %> </h3>
+          <% category.children.each do |subcategory| %>
+            <% sub_id = subcategory.id %>
+            <% products = @regimen.products.where(product_category_id: sub_id) %>
+            <% if products.any? %>
+            <div class="subcategory">
+            <h4><%= subcategory.name %></h4>
+              <% products.each do |product| %>
+                <%= link_to(product) do %>
+                  <span><%= image_tag(product.image)  %></span>
+                  <p><%= product.name %></p>
+                <% end %>
+              <% end %>
+            </div>
+            <% end %>
+          <% end %>
+      </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<% end %>
+</div>

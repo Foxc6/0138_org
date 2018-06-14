@@ -1,0 +1,47 @@
+<div class="table-holder">
+  <div class="has-limit extended14">
+  <% if @product_categories.any? %>
+  <table>
+    <thead class="pretty">
+      <tr>
+        <th><%= sortable "name" %></th>
+        <th><%= sortable "slug" %></th>
+        <th><%= sortable "parent_category" %></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @product_categories.each do |category| %>
+        <tr class="override">
+          <td class="avatar">
+            <span class="name"><%= link_to category.name, product_category_path(category) %></span>
+          </td>
+          <td>
+            <%= category.slug  %>
+          </td>
+          <td>
+            <% if category.parent %>
+              <%= link_to category.parent.name, edit_product_category_path(category.parent) %>
+            <% end %>
+          </td>
+          <td class="actions">
+            <a href="<%= edit_product_category_path(category) %>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+             <a href="<%= product_category_path(category) %>"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+            <%= link_to '', product_category_path(category), :method => :delete, :class => 'fa fa-times', data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% end %>
+  </div>
+</div>
+
+<div class="col-sm-12 col-md-12 pagination-block">
+  <% if @product_categories.any? %>
+  <%= will_paginate @product_categories, :previous_label => 'Prev', :next_label => 'Next'  %>
+  <% else %>
+  <p class="empty">No product categories yet.</p>
+  <% end %>
+</div>

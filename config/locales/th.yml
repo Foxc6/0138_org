@@ -1,0 +1,24 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+th:
+  hello: "Hello world"
+  
+  error_unknown: "เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง "
+  error_duplicate_email: "อีเมลของท่านได้รับการบันทึกในระบบเรียบร้อยแล้ว ลูกค้าหนึ่งท่านสามารถรับตัวอย่างผลิตภัณฑ์ได้เพียงชิ้นเดียวเท่านั้น"
+
+  valid_email:
+    validations:
+      email:
+        invalid: "กรุณากรอกอีเมลที่ถูกต้อง"
+  errors:
+    messages:
+      blank: "กรุณากรอกรายละเอียดให้ครบถ้วน"
+      accepted: "กรุณากรอกรายละเอียดให้ครบถ้วน"
+      confirmation: "กรุณากรอกอีเมลและยืนยันอีเมลให้ตรงกัน"
+
+  codes:
+    messages:
+      not_found: "Code not found."
+      only_one: "สงวน 1 สิทธิ์ต่อ 1 ท่าน"
+      not_available: "No more available."

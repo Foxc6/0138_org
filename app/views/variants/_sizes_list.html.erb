@@ -1,0 +1,22 @@
+<% if @sizes.present? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Size</th>
+        <th>Product</th>
+        <th>Variant</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @sizes.each do |size| %>
+    <tr class="description-toggle">
+        <td><%= size.name %></td>
+        <td><%= @product.name %></td>
+    </tr>
+
+    <% end %>
+    </tbody>
+  </table>
+  <% else %>
+    <p class="empty">No sizes yet.</p>
+  <% end %>

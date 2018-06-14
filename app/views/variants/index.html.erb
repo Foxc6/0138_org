@@ -1,0 +1,14 @@
+<% flash.each do |key, value| %>
+<div id="error_explanation" class="row notice"><%= value %></div>
+<% end %>
+<div class="row bar-header full-bg">
+  <div class="col-sm-12 col-md-12">
+    <div class="has-limit">
+      <h2>Variants for Product “<%= @product.name %>”</h2>
+      <%= link_to '+ New Variant', new_variant_path(:product => @product) %>
+    </div>
+  </div>
+</div>
+<div class="layout row">
+  <%= render :partial => 'variants/list', :locals => {:variants => @variants} %>
+</div>

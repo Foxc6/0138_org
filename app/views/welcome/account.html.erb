@@ -1,0 +1,22 @@
+<div class="row bar-header full-bg">
+  <div class="col-sm-12 col-md-12">
+    <div class="has-limit">
+      <% flash.each do |key, value| %>
+      <div id="error_explanation"><%= value %></div>
+      <% end %>
+      <h2>Account</h2>
+    </div>
+  </div>
+</div>
+<div class="group-contents">
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <div class="has-limit">
+        <p><strong>Name</strong> <br><%= current_user.first_name %> <%= current_user.last_name %></p>
+        <p><strong>Email</strong> <br><%= current_user.email %></p>
+        <p><strong>Market</strong> <br><%= current_user.locale.name %></p>
+        <p><strong>Role</strong> <br><%= current_user.role.name %></p>
+      </div>
+    </div>
+  </div>
+</div>

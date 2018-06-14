@@ -1,0 +1,27 @@
+<% flash.each do |key, value| %>
+<div id="error_explanation" class="row notice"><%= value %></div>
+<% end %>
+<div class="row bar-header full-bg">
+  <div class="col-sm-12 col-md-12">
+    <div class="has-limit">
+      <h2>Guide</h2>
+      <%= link_to 'Delete', guide_path(@guide),
+            data: {:confirm => 'Are you sure?'}, :method => :delete %>
+      <%= link_to 'Edit', edit_guide_path(@guide) %>
+      <%= link_to 'Back', guides_path %>
+    </div>
+  </div>
+</div>
+<div class="group-contents">
+  <% if @guide %>
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <div class="has-limit">
+        <h3><%= @guide.first_name %> <%= @guide.last_name %></h3>
+        <p><strong>Username:</strong> <%= @guide.username %></p>
+        <p><strong>Email:</strong> <a href="mailto:<%= @guide.email %>"><%= @guide.email %></a></p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

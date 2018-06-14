@@ -1,0 +1,41 @@
+<%= form_for(@product_category) do |f| %>
+  <% if @product_category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product_category.errors.count, "error") %> prohibited this product_category from being saved:</h2>
+      <ul>
+      <% @product_category.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="actions">
+  <div class="form-group edit-pro-contact">
+    <fieldset class="name">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </fieldset>
+    <fieldset class="slug">
+      <%= f.label :slug %>
+      <%= f.text_field :slug %>
+    </fieldset>
+    <fieldset class="is-male-only">
+      <div class="cb-holder">
+      <%= f.check_box :is_male_only %>
+      <%= f.label :is_male_only %>
+      </div>
+    </fieldset>
+    <fieldset class="parent">
+      <%= f.label :parent_category %>
+      <%= f.collection_select :parent_id, @parent_categories,:id,:name, include_blank: true %>
+    </fieldset>
+    <div class="actions">
+      <%= f.submit  %>
+      <%= link_to 'Cancel', @product_category %>
+    </div>
+  </div>
+
+
+</div>
+<% end %>

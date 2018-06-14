@@ -1,0 +1,6 @@
+tw:
+  codes:
+    messages:
+      not_found: "無效的QR Code"
+      only_one: "每人限參加一次"
+      not_available: "没有更多的可用。"

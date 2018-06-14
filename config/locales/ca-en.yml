@@ -1,0 +1,6 @@
+nl:
+  codes:
+    messages:
+      not_found: "Code not found."
+      only_one: "Only one per customer."
+      not_available: "No more available."

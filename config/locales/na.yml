@@ -1,0 +1,38 @@
+na:
+  hello: "Hello world"
+
+  share_name: "Discover Origins Sample Club"
+  share_caption: "Lorem ipsum dolor sit amet."
+  share_description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+
+  error_unknown: "An unknown error has occurred, please try again."
+  error_duplicate_email: "Your email is already in the system. Only one sample per customer."
+
+  valid_email:
+    validations:
+      email:
+        invalid: "Please enter a valid email address."
+  errors:
+    messages:
+      blank: "Please complete required fields."
+      accepted: "Please complete required fields."
+      confirmation: "Email and Confirm Email field must be the same."
+      not_saved: "Please complete all required fields"
+
+  devise:
+    registrations:
+      user:
+        updated: "Profile updated."
+    sessions:
+      user:
+        signed_in: "Success!"
+
+  will_paginate:
+      next_label: "Next"
+      previous_label: "Previous"
+
+  codes:
+    messages:
+      not_found: "Code not found."
+      only_one: "Only one per customer."
+      not_available: "No more available."

@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+<% if @customer %>
+  <h3>First Name: <%= @customer.first_name %></h3><br>
+  <h3>Last Name: <%= @customer.last_name %></h3><br>
+  <h3>Email: <%= @customer.email %></h3><br>
+  <h3>Newsletter?: <%= @customer.newsletter_optin %></h3><br>
+  <h3>Email?: <%= @customer.email_optin %></h3><br>
+  <%= link_to 'Edit', edit_customer_path(@customer) %> |
+  <%= link_to 'Back', customers_path %> |
+  <%= link_to 'Delete', customer_path(@customer),
+            data: {:confirm => 'Are you sure?'}, :method => :delete %>
+<% end %>

@@ -1,0 +1,24 @@
+<div class="row bar-header full-bg">
+  <div class="col-sm-12 col-md-12">
+    <div class="has-limit">
+      <% flash.each do |key, value| %>
+      <div id="error_explanation"><%= value %></div>
+      <% end %>
+      <h2>Settings</h2>
+    </div>
+  </div>
+</div>
+<div class="group-contents">
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <div class="has-limit">
+        <p><strong>Name</strong> <br><%= @preference.name %></p>
+        <p><strong>Company</strong> <br><%= @preference.company %></p>
+        <p><strong>Description</strong> <br><%= @preference.meta_description %></p>
+        <p><strong>Meta Keywords</strong> <br><%= @preference.meta_keywords %></p>
+        <p><%= image_tag(@preference.logo, :style=> 'max-width: 100px;') %></p>
+        <p><strong>Market</strong> <br><%= @preference.locale.name %></p>
+      </div>
+    </div>
+  </div>
+</div>

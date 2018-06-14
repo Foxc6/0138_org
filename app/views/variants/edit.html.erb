@@ -1,0 +1,18 @@
+<% flash.each do |key, value| %>
+<div id="error_explanation" class="row notice"><%= value %></div>
+<% end %>
+<div class="row bar-header full-bg">
+  <div class="col-sm-12 col-md-12">
+    <div class="has-limit">
+      <h2>Edit Variant</h2>
+      <%= link_to 'Back', variants_path(:product => @product) %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12 col-md-12">
+    <div class="has-limit">
+      <%= render 'form' %>
+    </div>
+  </div>
+</div>

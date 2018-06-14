@@ -1,0 +1,132 @@
+<%= nested_form_for @product, html: { multipart: true } do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+      <ul>
+      <% @product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="actions">
+  <div class="form-group edit-pro-contact">
+    <fieldset class="active">
+      <div class="cb-holder">
+      <%= f.check_box :active %>
+      <%= f.label :active %>
+      </div>
+    </fieldset>
+    <fieldset class="first-name">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </fieldset>
+    <fieldset class="franchise-name">
+      <%= f.label :franchise_name %>
+      <%= f.text_field :franchise_name %>
+    </fieldset>
+    <fieldset class="franchise-name">
+      <%= f.label 'Ecommerce URL' %>
+      <%= f.text_field :ecomm_url %>
+    </fieldset>
+    <fieldset class="image">
+      <%= f.label :product_image %>
+      <% if @product.image.present? %>
+      <%= image_tag(@product.image) %><br>
+      <% end %>
+      <%= f.file_field :image %>
+    </fieldset>
+    <fieldset class="description">
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </fieldset>
+    <fieldset class="origins-prodid">
+      <%= f.label 'Origins Product ID' %>
+      <%= f.text_field :origins_prodid %>
+    </fieldset>
+    <fieldset class="product-category">
+      <%= f.label :product_category %>
+      <%= f.collection_select :product_category_id, ProductCategory.where("parent_id IS NOT NULL").user_scope.order(:name),:id,:name, include_blank: true %>
+    </fieldset>
+
+    <fieldset class="skin-types">
+      <%= f.label :skin_types %>
+      <div class="cb-holder">
+        <%= f.collection_check_boxes :skin_type_ids, SkinType.user_scope, :id, :name, { :selected => @product.skin_type_ids } %>
+      </div>
+    </fieldset>
+    <div class="master-variant">
+      <div class="variant-form">
+        <!-- Master variant form here-->
+        <fieldset class="m-variant">
+          <%= f.label :code %>
+          <%= f.text_field :master_code %>
+        </fieldset>
+        <fieldset class="m-variant">
+          <%= f.label :upc %>
+          <%= f.text_field :master_upc %>
+        </fieldset>
+        <fieldset class="m-variant">
+          <%= f.label :price %>
+          <%= f.number_field :master_price, :step => 0.01 %>
+        </fieldset>
+         <fieldset class="m-variant">
+          <%= f.label :size %>
+          <%= f.collection_select(:master_size, OptionValue.all.order(:name), :id, :name, {include_blank: true, :selected => @product.master.option_value_ids, multiple: true}, {class: "chosen-select medium", :data => {'placeholder' => 'option value'}}) %>
+        </fieldset>
+        <fieldset class="m-variant">
+
+        </fieldset>
+      </div>
+    </div>
+    <div class="variants">
+      <h4>Variants</h4>
+      <div class="variant-form">
+          <!-- Additional repeatable variant form here -->
+
+          <%= f.fields_for :variants do |variant| %>
+            <fieldset>
+              <%= f.label :code %>
+              <%= variant.text_field :code, :class =>'odd' %>
+            </fieldset>
+            <fieldset>
+              <%= f.label :upc %>
+              <%= variant.text_field :upc, :class =>'odd' %>
+            </fieldset>
+            <fieldset>
+              <%= f.label :price %>
+              <%= variant.number_field :price, :step => 0.01, :class =>'odd', :placeholder => 'Price' %>
+            </fieldset>
+            <fieldset>
+            <% option_types = OptionType.all %>
+              <% option_types.each do |option_type| %>
+                 <%= variant.label :option_type, option_type.presentation %>
+                <% option_values = OptionValue.where(option_type_id: option_type.id) %>
+                <%= variant.collection_select(:option_value_ids, OptionValue.where(option_type_id: option_type.id), :id, :name, {}, {class: "chosen-select medium", :data => {'placeholder' => 'option value'}}) %>
+              <%= variant.link_to_remove raw('<i class="fa fa-times-circle"></i>') %>
+            <% end %>
+            </fieldset>
+          <% end %>
+          <%= f.link_to_add " + Variant", :variants %>
+
+      </div>
+    </div>
+    <div class="actions">
+      <%= f.submit  %>
+      <%= link_to 'Cancel', @product %>
+    </div>
+  </div>
+</div>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+

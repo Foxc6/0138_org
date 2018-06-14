@@ -1,0 +1,6 @@
+dk:
+  codes:
+    messages:
+      not_found: "Kode ikke fundet."
+      only_one: "Kun én per kunde."
+      not_available: "Ikke mere tilgængelig."

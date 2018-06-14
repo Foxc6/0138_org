@@ -1,0 +1,10 @@
+cn:
+  hello: "Hello world"
+  share_name: "Smarty Plants™ CC"
+  share_caption: "Correct, perfects & protects"
+  share_description: "Try NEW Origins Smarty Plants™ CC SPF skin complexion corrector for FREE!"
+  error_unknown: "An unknown error has occurred, please try again."
+  error_valid_email: "Please enter a valid email address."
+  error_duplicate_email: "Your email is already in the system. Only one sample per customer."
+  error_same_email: "Email and Confirm Email field must be the same."
+  error_complete_required : "Please complete required fields."

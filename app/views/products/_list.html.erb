@@ -1,0 +1,73 @@
+<div class="table-holder">
+  <div class="has-limit extended14">
+  <% if @products.any? %>
+  <table>
+    <thead class="pretty">
+      <tr>
+        <th><%= sortable "name" %></th>
+        <th><%= sortable "origins_prodid" %></th>
+        <th><%= sortable "franchise_name" %></th>
+        <th><%= sortable "product_category" %></th>
+        <th>Skin Types</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @products.each do |product| %>
+        <tr class="override">
+          <td class="avatar">
+            <div class="holder">
+              <%= link_to image_tag(product.image.url(:thumb)), product_path(product) %>
+              <span class="name-title-txt">
+                <span class="name">
+                  <%= link_to truncate(product.name, :length => 90), product_path(product) %>
+                </span>
+                <br>
+              </span>
+            </div>
+          </td>
+          <td>
+            <%= product.origins_prodid  %>
+          </td>
+          <td>
+            <%= product.franchise_name  %>
+          </td>
+          <td>
+            <% if product.product_category %>
+              <%= link_to product.product_category.name, product_category_path(product.product_category)  %>
+            <% end %>
+          </td>
+          <td>
+            <% if product.skin_types.any? %>
+              <% cnt = 0 %>
+              <% product.skin_types.each do |skin_type|  %>
+                <% if cnt > 0 %>
+                , <%= skin_type.name %>
+                <% else %>
+                <%= skin_type.name %>
+                <% end %>
+                <% cnt = cnt+1 %>
+              <% end %>
+            <% end %>
+          </td>
+          <td class="actions">
+            <a href="<%= edit_product_path(product) %>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+             <a href="<%= product_path(product) %>"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+            <%= link_to '', product_path(product), :method => :delete, :class => 'fa fa-times', data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% end %>
+  </div>
+</div>
+
+<div class="col-sm-12 col-md-12 pagination-block">
+  <% if @products.any? %>
+  <%= will_paginate @products, :previous_label => 'Prev', :next_label => 'Next'  %>
+  <% else %>
+  <p class="empty">No products yet.</p>
+  <% end %>
+</div>

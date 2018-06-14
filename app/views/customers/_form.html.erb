@@ -1,0 +1,51 @@
+<div class="has-limit">
+  <div class="row">
+    <%= form_for(@customer) do |f| %>
+      <div class="col-sm-12 col-md-6">
+        <% if @customer.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+            <ul>
+            <% @customer.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="edit-pro-info">
+          <div class="form-group edit-pro-contact">
+            <fieldset class="first-name">
+              <%= f.label :first_name %>
+              <%= f.text_field :first_name %>
+            </fieldset>
+            <fieldset class="first-name">
+              <%= f.label :last_name %>
+              <%= f.text_field :last_name %>
+            </fieldset>
+            <fieldset class="first-name">
+              <%= f.label :email %>
+              <%= f.email_field :email %>
+            </fieldset>
+            <fieldset class="first-name">
+              <%= f.label :email_optin %>
+              <%= f.check_box :email_optin %>
+            </fieldset>
+            <fieldset class="first-name">
+              <%= f.label :newsletter_optin %>
+              <%= f.check_box :newsletter_optin %>
+            </fieldset>
+          </div>
+        </div>
+        <div class="actions">
+          <%= f.submit "Save" %>
+          <% if @customer %>
+            <%= link_to 'Cancel', @customer %>
+            <% else %>
+            <%= link_to 'Cancel', customers_path %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

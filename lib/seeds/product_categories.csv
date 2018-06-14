@@ -1,0 +1,26 @@
+id,name,slug,position,created_at,updated_at,locale_id,parent_id,is_male_only
+1,Cleanse,cleanse,NULL,2016-08-18 17:07:34,2016-08-18 17:07:34,2,,0
+2,Treat,treat,NULL,2016-08-18 17:07:34,2016-08-18 17:07:34,2,,0
+3,Moisturize,moisturize,NULL,2016-08-18 17:07:34,2016-08-18 17:07:34,2,,0
+4,Shave,shave,NULL,2016-08-18 17:07:34,2016-08-18 17:07:34,2,,1
+5,Cleanser,cleanser,NULL,2016-08-18 17:07:34,2016-08-18 17:07:34,2,1,0
+6,Exfoliator,exfoliator,NULL,2016-08-18 17:07:34,2016-08-18 17:07:34,2,1,0
+7,Mask,mask,NULL,2016-08-18 17:07:34,2016-08-18 17:07:34,2,2,0
+8,Serum,serum,NULL,2016-08-18 17:07:34,2016-08-18 17:07:34,2,2,0
+9,Eye Care,eye_care,NULL,2016-08-18 17:07:34,2016-08-18 17:07:34,2,2,0
+10,Treatment Lotion,treatment_lotion,NULL,2016-08-18 17:07:34,2016-08-18 17:07:34,2,2,0
+11,Moisturizer,moisturizer,NULL,2016-08-18 17:07:34,2016-08-18 17:07:34,2,3,0
+12,Night Moisturizer,night_moisturizer,NULL,2016-08-18 17:07:34,2016-08-18 17:07:34,2,3,0
+13,Face Oil,face_oil,NULL,2016-08-18 17:07:34,2016-08-18 17:07:34,2,3,0
+14,Pre-Shave Oil,pre_shave_oil,NULL,2016-08-18 17:07:34,2016-08-18 17:07:34,2,4,1
+15,Shave Cream,shave_cream,NULL,2016-08-18 17:07:34,2016-08-18 17:07:34,2,4,1
+16,After Shave,after_shave,NULL,2016-08-18 17:07:34,2016-08-18 17:07:34,2,4,1
+17,Toner,toner,NULL,0000-00-00 00:00:00,0000-00-00 00:00:00,2,1,0
+18,Blemish Remover,blemish_remover,NULL,0000-00-00 00:00:00,0000-00-00 00:00:00,2,2,0
+19,Face Wash and Cleanser,face_wash_and_cleanser,NULL,0000-00-00 00:00:00,0000-00-00 00:00:00,2,1,0
+20,Self Tan,self_tan,NULL,0000-00-00 00:00:00,0000-00-00 00:00:00,2,,0
+21,Self Tanner,self_tanner,NULL,0000-00-00 00:00:00,0000-00-00 00:00:00,2,20,0
+22,Eye Makeup Remover,eye_makeup_remover,NULL,0000-00-00 00:00:00,0000-00-00 00:00:00,2,1,0
+23,BB Cream,bb_cream,NULL,0000-00-00 00:00:00,0000-00-00 00:00:00,2,3,0
+24,CC Cream,cc_cream,NULL,0000-00-00 00:00:00,0000-00-00 00:00:00,2,3,0
+25,Lip Care,lip_care,NULL,0000-00-00 00:00:00,0000-00-00 00:00:00,2,2,0
